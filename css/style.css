@@ -1,0 +1,96 @@
+/*FONTS*/
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Vidaloka', sans-serif;
+}
+
+.name-spacing {
+    letter-spacing: 1.5px; 
+}
+
+/*BACKGROUND*/
+
+main {
+    --bg-color: white;
+    --dot-color: #ef4e7b;
+
+    --dot-size: 2px;
+    --dot-space: 22px;
+
+    background:
+        linear-gradient(90deg, var(--bg-color) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center,
+        linear-gradient(var(--bg-color) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center,
+        var(--dot-color);
+    background-size: var(--dot-space) var(--dot-space);
+}
+
+/*POSITION OF The MAIN PAGE*/
+.page {
+    top: -5rem;
+    position: relative;
+}
+
+/*BORDER ANIMATION*/
+.page {
+    --borderWidth: 15px;
+    background: white;
+    border-radius: var(--borderWidth);
+}
+
+.page:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 7s ease alternate infinite;
+    background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/*LINK STYLISHING*/
+.credits {
+    background-color: #ef4e7b;
+    display: inline-block;
+    color: white;
+    margin: .5rem .5rem;
+    border-radius: 5px;
+    transition: all .2s;
+}
+
+.credits a:link,
+.credits a:visited {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.credits:hover {
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    text-decoration: none;
+    transform: translate(5px, -5px);
+}
+    
