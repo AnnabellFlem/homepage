@@ -11,12 +11,20 @@ h1, h2, h3 {
     letter-spacing: 1.5px; 
 }
 
-/*BACKGROUND*/
+/*Color pallete and selection text*/
 
-main {
+:root {
     --bg-color: white;
     --dot-color: #ef4e7b;
+}
 
+::selection {
+    color: var(--bg-color);
+    background-color: var(--dot-color);
+}
+
+/*BACKGROUND*/
+main {
     --dot-size: 2px;
     --dot-space: 22px;
 
