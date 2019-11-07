@@ -3,12 +3,15 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Vidaloka', sans-serif;
 }
 
-.name, .name-spacing {
-    letter-spacing: 1.5px; 
+.name,
+.name-spacing {
+    letter-spacing: 1.5px;
 }
 
 /*Color pallete and selection text*/
@@ -91,14 +94,32 @@ main {
 }
 
 .credits:hover {
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
     text-decoration: none;
     transform: translate(5px, -5px);
 }
-    
-/*Timeline fixes (temporary)*/
-.highlighted ul > li:last-child::before {
-    content: "";
+
+/* List design and inputs */
+
+li.highlighted>ul {
+    display: flex;
+    padding-left: 0;
+}
+
+li.highlighted>ul>li:before {
+    content: '';
+}
+
+.details>input {
+    justify-content: flex-start;
+}
+
+li.details>input {
+    margin-left: 0;
+}
+
+.timeline>li p {
+    padding-bottom: 1px;
 }
