@@ -21,6 +21,11 @@ h3 {
     --dot-color: #ef4e7b;
 }
 
+::-moz-selection {
+    color: var(--bg-color);
+    background-color: var(--dot-color);
+}
+
 ::selection {
     color: var(--bg-color);
     background-color: var(--dot-color);
@@ -31,10 +36,9 @@ main {
     --dot-size: 2px;
     --dot-space: 22px;
 
-    background:
-        linear-gradient(90deg, var(--bg-color) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center,
-        linear-gradient(var(--bg-color) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center,
-        var(--dot-color);
+    background: linear-gradient(90deg, var(--bg-color) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center,
+    linear-gradient(var(--bg-color) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center,
+    var(--dot-color);
     background-size: var(--dot-space) var(--dot-space);
 }
 
@@ -56,14 +60,15 @@ main {
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     border-radius: calc(2 * var(--borderWidth));
     z-index: -1;
+    -webkit-animation: animatedgradient 7s ease alternate infinite;
     animation: animatedgradient 7s ease alternate infinite;
     background-size: 300% 300%;
 }
 
 
-@keyframes animatedgradient {
+@-webkit-keyframes animatedgradient {
     0% {
-        background-position: 0% 50%;
+        background-position: 0 50%;
     }
 
     50% {
@@ -71,7 +76,22 @@ main {
     }
 
     100% {
-        background-position: 0% 50%;
+        background-position: 0 50%;
+    }
+}
+
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
     }
 }
 
@@ -94,32 +114,67 @@ main {
 }
 
 .credits:hover {
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
     text-decoration: none;
+    -webkit-transform: translate(5px, -5px);
     transform: translate(5px, -5px);
 }
 
 /* List design and inputs */
 
-li.highlighted>ul {
+li.highlighted > ul {
+    display: -ms-flexbox;
     display: flex;
     padding-left: 0;
 }
 
-li.highlighted>ul>li:before {
+li.highlighted > ul > li:before {
     content: '';
 }
 
-.details>input {
+.details > input {
+    -ms-flex-pack: start;
     justify-content: flex-start;
 }
 
-li.details>input {
+li.details > input {
     margin-left: 0;
 }
 
-.timeline>li p {
+.timeline > li p {
     padding-bottom: 1px;
+}
+
+.contacts {
+    margin-top: 1em;
+}
+
+@media screen and (max-width: 1199px) {
+    .thirteen.wide.column {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .thirteen.wide.column {
+        padding-left: 5rem;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .page {
+        border-radius: unset;
+    }
+
+    .page:after {
+        display: none;
+    }
+
+    .credits {
+        display: none;
+    }
 }
